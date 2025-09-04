@@ -1,0 +1,43 @@
+import sys
+nombre_completo = input("Porfavor ingrese tu nombre completo ")
+
+dni = int(input("Porfavor ingresa tu dni "))
+dni_caracteres = str(dni)
+dni_caracteres = len(dni_caracteres)
+
+
+if(dni_caracteres!=8):
+    print("DNI inválido, finalizando programa")
+    sys.exit()
+
+edad = int(input("Pofavor ingresa tu edad "))
+print()
+obra_social = input("¿Posee obra social? (si/no) ")
+print()
+prioridad_medica = ["1","2","3"]
+eleccion = str(input("ingresa tu prioridad médica (1 = emergencia | 2 = urgente | 3 = control) "))
+print()
+
+if(prioridad_medica[0]==eleccion):
+    print("Usted será atendido por un guardia ")
+    sys.exit()
+
+if(prioridad_medica[1]==eleccion):
+    if(obra_social=="si"):
+        turno = "Usted obtendrá un turno en menos de 24 hs."
+        
+    else:
+           turno = "Usted obtendr´un turno en 48 hs."
+            
+            
+if(prioridad_medica[2]==eleccion):
+    if(edad>65):
+       turno = "Usted obtendrá un turno preferencial en 72 hs"
+    else:
+            turno = "Usted obtendrá un turno normal en 7 días"
+
+print("Paciente: ",nombre_completo)
+print("DNI: ",dni)
+print("Edad: ",edad)
+print("Prioridad: ",eleccion)
+print("Turno asignado: ",turno)
